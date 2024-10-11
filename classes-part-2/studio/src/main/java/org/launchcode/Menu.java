@@ -1,5 +1,6 @@
 package org.launchcode;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,6 +11,13 @@ public class Menu {
     public Menu(Date d, ArrayList<MenuItem> i) {
         this.lastUpdated = d;
         this.items = i;
+    }
+
+    public void addMenuItem(MenuItem item) {
+        this.items.add(item);
+        this.lastUpdated = new Date();
+        System.out.println("The item " + item.toString() + " was added to the menu");
+
     }
 
     public void setLastUpdated(Date lastUpdated) {

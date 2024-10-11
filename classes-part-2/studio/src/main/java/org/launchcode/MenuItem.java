@@ -13,6 +13,14 @@ public class MenuItem {
         this.isNew = iN;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public String getDescription() { return description; }
+
+    public String getCategory() { return category; }
+;
     public void setPrice(double price) {
         this.price = price;
     }
@@ -27,6 +35,28 @@ public class MenuItem {
 
     public void setNew(boolean aNew) {
         isNew = aNew;
+    }
+
+    @Override
+    public String toString() {
+        return description + " with price: " + price;
+    }
+
+    public boolean equals(Object objectToCompare) {
+        if (this == objectToCompare) {
+            return true;
+        }
+        if(objectToCompare == null){
+            return false;
+        }
+        if (getClass() != objectToCompare.getClass()) {
+            return false;
+        }
+        MenuItem theMenuItem = (MenuItem) objectToCompare;
+        boolean isPriceEqual =  theMenuItem.getPrice() == this.getPrice();
+        boolean isDescriptionEqual =  theMenuItem.getDescription().equals(this.getDescription());
+        boolean isCategoryEqual =  theMenuItem.getCategory().equals(this.getCategory());
+        return isPriceEqual && isCategoryEqual && isDescriptionEqual;
     }
 }
 
